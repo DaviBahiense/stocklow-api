@@ -10,6 +10,15 @@ async function create(req: Request, res: Response) {
   res.sendStatus(201);
 }
 
+async function getProducts(req: Request, res: Response) {
+  const userId = res.locals.user.id;
+
+  const products = await productService.getProducts(userId);
+
+  res.send(products);
+}
+
 export default {
   create,
+  getProducts,
 };

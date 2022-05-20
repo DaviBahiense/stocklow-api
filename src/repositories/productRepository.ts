@@ -7,6 +7,20 @@ async function insert(newProduct: CreateProduct) {
   });
 }
 
+async function find(userId: number) {
+  const productsByCategory = await prisma.category.findMany({
+    include: {
+      products: {
+        where: { userId: userId },
+        select: { product: true, unity: true, quantity: true },
+      },
+    },
+  });
+
+  return productsByCategory;
+}
+
 export default {
   insert,
+  find,
 };

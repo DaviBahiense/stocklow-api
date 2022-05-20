@@ -5,9 +5,15 @@ import { ensureAuthenticatedMiddleware } from "../middlewares/ensureAuthenticate
 const productRouter = Router();
 
 productRouter.post(
-  "/new-product",
+  "/products",
   ensureAuthenticatedMiddleware,
   productController.create
+);
+
+productRouter.get(
+  "/products",
+  ensureAuthenticatedMiddleware,
+  productController.getProducts
 );
 
 export default productRouter;
