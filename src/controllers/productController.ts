@@ -18,7 +18,14 @@ async function getProducts(req: Request, res: Response) {
   res.send(products);
 }
 
+async function getCategories(req: Request, res: Response) {
+  const categories = await productService.getCategories();
+
+  res.send(categories);
+}
+
 export default {
   create,
   getProducts,
+  getCategories,
 };

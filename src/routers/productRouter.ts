@@ -16,4 +16,6 @@ productRouter.get(
   productController.getProducts
 );
 
+productRouter.get("/categories", productController.getCategories);
+
 export default productRouter;

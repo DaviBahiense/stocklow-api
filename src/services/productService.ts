@@ -20,7 +20,12 @@ async function getProducts(userId: number) {
   return products;
 }
 
+async function getCategories() {
+  return await productRepository.findCategories();
+}
+
 export default {
   create,
   getProducts,
+  getCategories,
 };

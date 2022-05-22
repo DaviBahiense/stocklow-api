@@ -20,7 +20,12 @@ async function find(userId: number) {
   return productsByCategory;
 }
 
+async function findCategories() {
+  return await prisma.category.findMany({});
+}
+
 export default {
   insert,
   find,
+  findCategories,
 };
